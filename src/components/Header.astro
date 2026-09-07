@@ -1,0 +1,102 @@
+---
+import ArrowIcon from "./ArrowIcon.astro";
+import { company, navigation } from "../data/company";
+
+interface Props {
+  active: string;
+}
+
+const { active } = Astro.props;
+---
+
+<header class="site-header" data-site-header>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="utility-bar" aria-label="Quick contact">
+    <div class="utility-inner shell">
+      <a href={`mailto:${company.emails[0]}`}>{company.emails[0]}</a>
+      <span>HVAC projects and service across South India</span>
+      <div class="utility-phones">
+        <a href={company.mobilePhones[0].href}>{company.mobilePhones[0].display}</a>
+        <i aria-hidden="true"></i>
+        <a href={company.mobilePhones[1].href}>{company.mobilePhones[1].display}</a>
+      </div>
+    </div>
+  </div>
+  <div class="header-inner shell">
+    <a class="brand" href="/" aria-label="PEACE HVAC Engineers home">
+      <img src="/assets/peace-logo.png" alt="" width="410" height="615" />
+      <span class="brand-name"><strong>PEACE</strong><span>HVAC Engineers</span></span>
+    </a>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-label="Open navigation"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      data-menu-toggle
+    >
+      <span class="menu-toggle-lines" aria-hidden="true"><i></i><i></i></span>
+      <span data-menu-label>Menu</span>
+    </button>
+
+    <nav class="primary-nav" id="primary-navigation" aria-label="Primary" data-primary-nav>
+      <ul>
+        {
+          navigation.map((item) => (
+            <li>
+              <a href={item.href} aria-current={item.key === active ? "page" : undefined}>
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <a class="button button-small" href="/contact/">
+        Discuss a project <ArrowIcon direction="up-right" />
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.querySelector<HTMLElement>("[data-site-header]");
+  const toggle = header?.querySelector<HTMLButtonElement>("[data-menu-toggle]");
+  const navigation = header?.querySelector<HTMLElement>("[data-primary-nav]");
+  const menuLabel = toggle?.querySelector<HTMLElement>("[data-menu-label]");
+
+  const setBackgroundInert = (inert: boolean) => {
+    document.querySelector("main")?.toggleAttribute("inert", inert);
+    document.querySelector("footer")?.toggleAttribute("inert", inert);
+  };
+
+  const closeMenu = (restoreFocus = false) => {
+    toggle?.setAttribute("aria-expanded", "false");
+    toggle?.setAttribute("aria-label", "Open navigation");
+    if (menuLabel) menuLabel.textContent = "Menu";
+    navigation?.removeAttribute("data-open");
+    document.body.classList.remove("menu-open");
+    setBackgroundInert(false);
+    if (restoreFocus) toggle?.focus();
+  };
+
+  toggle?.addEventListener("click", () => {
+    const open = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute("aria-expanded", String(!open));
+    toggle.setAttribute("aria-label", open ? "Open navigation" : "Close navigation");
+    if (menuLabel) menuLabel.textContent = open ? "Menu" : "Close";
+    navigation?.toggleAttribute("data-open", !open);
+    document.body.classList.toggle("menu-open", !open);
+    setBackgroundInert(!open);
+  });
+
+  navigation?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => closeMenu()));
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && toggle?.getAttribute("aria-expanded") === "true") {
+      closeMenu(true);
+    }
+  });
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 920) closeMenu();
+  });
+</script>

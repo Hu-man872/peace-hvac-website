@@ -1,0 +1,121 @@
+[debug] [2026-09-07T07:34:41.983Z] ----------------------------------------------------------------------
+[debug] [2026-09-07T07:34:41.994Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\punee\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init hosting
+[debug] [2026-09-07T07:34:41.994Z] CLI Version:   15.22.1
+[debug] [2026-09-07T07:34:41.994Z] Platform:      win32
+[debug] [2026-09-07T07:34:41.995Z] Node Version:  v24.19.0
+[debug] [2026-09-07T07:34:41.995Z] Detected Agent: unknown
+[debug] [2026-09-07T07:34:41.995Z] Time:          Mon Sep 07 2026 13:04:41 GMT+0530 (India Standard Time)
+[debug] [2026-09-07T07:34:41.995Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-09-07T07:34:41.998Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\punee\Documents\Codex\2026-09-06\im\outputs\peace-hvac-website
+
+[debug] [2026-09-07T07:35:06.340Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2026-09-07T07:35:06.340Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project. 
+[debug] [2026-09-07T07:35:32.356Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-09-07T07:35:32.356Z] > authorizing via signed-in user (ariesmediacompany@gmail.com)
+[debug] [2026-09-07T07:35:44.928Z] Checked if tokens are valid: false, expires at: 1788383098258
+[debug] [2026-09-07T07:35:44.929Z] Checked if tokens are valid: false, expires at: 1788383098258
+[debug] [2026-09-07T07:35:44.929Z] > refreshing access token with scopes: []
+[debug] [2026-09-07T07:35:44.930Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-09-07T07:35:44.930Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-09-07T07:35:45.229Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-09-07T07:35:45.229Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-09-07T07:35:45.243Z] >>> [apiv2][query] POST https://firebase.googleapis.com/v1/projects:checkProjectId [none]
+[debug] [2026-09-07T07:35:45.243Z] >>> [apiv2][body] POST https://firebase.googleapis.com/v1/projects:checkProjectId {"proposedId":"peace-hvac"}
+[debug] [2026-09-07T07:35:45.839Z] <<< [apiv2][status] POST https://firebase.googleapis.com/v1/projects:checkProjectId 200
+[debug] [2026-09-07T07:35:45.840Z] <<< [apiv2][body] POST https://firebase.googleapis.com/v1/projects:checkProjectId {"projectIdStatus":"PROJECT_ID_AVAILABLE","suggestedProjectId":"peace-hvac"}
+[debug] [2026-09-07T07:35:54.966Z] Checked if tokens are valid: true, expires at: 1788770144229
+[debug] [2026-09-07T07:35:54.966Z] Checked if tokens are valid: true, expires at: 1788770144229
+[debug] [2026-09-07T07:35:54.966Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects [none]
+[debug] [2026-09-07T07:35:54.966Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"projectId":"peace-hvac","name":"peace"}
+[debug] [2026-09-07T07:35:56.866Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects 200
+[debug] [2026-09-07T07:35:56.866Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"name":"operations/create_project.global.6172566648900289024"}
+[debug] [2026-09-07T07:35:56.867Z] Checked if tokens are valid: true, expires at: 1788770144229
+[debug] [2026-09-07T07:35:56.867Z] Checked if tokens are valid: true, expires at: 1788770144229
+[debug] [2026-09-07T07:35:56.867Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.6172566648900289024 [none]
+[debug] [2026-09-07T07:35:58.355Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.6172566648900289024 200
+[debug] [2026-09-07T07:35:58.355Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.6172566648900289024 {"name":"operations/create_project.global.6172566648900289024"}
+[debug] [2026-09-07T07:35:58.870Z] [Project Creation Poller] Retrying task index 0
+[debug] [2026-09-07T07:35:58.870Z] Checked if tokens are valid: true, expires at: 1788770144229
+[debug] [2026-09-07T07:35:58.870Z] Checked if tokens are valid: true, expires at: 1788770144229
+[debug] [2026-09-07T07:35:58.871Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.6172566648900289024 [none]
+[debug] [2026-09-07T07:35:59.219Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.6172566648900289024 200
+[debug] [2026-09-07T07:35:59.219Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.6172566648900289024 {"name":"operations/create_project.global.6172566648900289024"}
+[debug] [2026-09-07T07:36:00.231Z] [Project Creation Poller] Retrying task index 0
+[debug] [2026-09-07T07:36:00.232Z] Checked if tokens are valid: true, expires at: 1788770144229
+[debug] [2026-09-07T07:36:00.232Z] Checked if tokens are valid: true, expires at: 1788770144229
+[debug] [2026-09-07T07:36:00.232Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.6172566648900289024 [none]
+[debug] [2026-09-07T07:36:00.601Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.6172566648900289024 200
+[debug] [2026-09-07T07:36:00.601Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.6172566648900289024 {"name":"operations/create_project.global.6172566648900289024","metadata":{"@type":"type.googleapis.com/google.cloudresourcemanager.v1.ProjectCreationStatus","gettable":true,"ready":true},"done":true,"response":{"@type":"type.googleapis.com/google.cloudresourcemanager.v1.Project","projectNumber":"586127394828","projectId":"peace-hvac","lifecycleState":"ACTIVE","name":"peace","createTime":"2026-09-07T07:35:59.473Z"}}
+[debug] [2026-09-07T07:36:00.602Z] Checked if tokens are valid: true, expires at: 1788770144229
+[debug] [2026-09-07T07:36:00.602Z] Checked if tokens are valid: true, expires at: 1788770144229
+[debug] [2026-09-07T07:36:00.602Z] >>> [apiv2][query] POST https://firebase.googleapis.com/v1beta1/projects/peace-hvac:addFirebase [none]
+[debug] [2026-09-07T07:36:04.966Z] <<< [apiv2][status] POST https://firebase.googleapis.com/v1beta1/projects/peace-hvac:addFirebase 200
+[debug] [2026-09-07T07:36:04.966Z] <<< [apiv2][body] POST https://firebase.googleapis.com/v1beta1/projects/peace-hvac:addFirebase {"name":"operations/workflows/MmM5YTkzNzUtYTZkOC00N2Q3LWI1YTAtZDk1OWEzNjI5YWFl"}
+[debug] [2026-09-07T07:36:04.966Z] Checked if tokens are valid: true, expires at: 1788770144229
+[debug] [2026-09-07T07:36:04.966Z] Checked if tokens are valid: true, expires at: 1788770144229
+[debug] [2026-09-07T07:36:04.966Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MmM5YTkzNzUtYTZkOC00N2Q3LWI1YTAtZDk1OWEzNjI5YWFl [none]
+[debug] [2026-09-07T07:36:09.136Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MmM5YTkzNzUtYTZkOC00N2Q3LWI1YTAtZDk1OWEzNjI5YWFl 200
+[debug] [2026-09-07T07:36:09.136Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MmM5YTkzNzUtYTZkOC00N2Q3LWI1YTAtZDk1OWEzNjI5YWFl {"name":"operations/workflows/MmM5YTkzNzUtYTZkOC00N2Q3LWI1YTAtZDk1OWEzNjI5YWFl"}
+[debug] [2026-09-07T07:36:09.641Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2026-09-07T07:36:09.642Z] Checked if tokens are valid: true, expires at: 1788770144229
+[debug] [2026-09-07T07:36:09.642Z] Checked if tokens are valid: true, expires at: 1788770144229
+[debug] [2026-09-07T07:36:09.642Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MmM5YTkzNzUtYTZkOC00N2Q3LWI1YTAtZDk1OWEzNjI5YWFl [none]
+[debug] [2026-09-07T07:36:10.795Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MmM5YTkzNzUtYTZkOC00N2Q3LWI1YTAtZDk1OWEzNjI5YWFl 200
+[debug] [2026-09-07T07:36:10.795Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MmM5YTkzNzUtYTZkOC00N2Q3LWI1YTAtZDk1OWEzNjI5YWFl {"name":"operations/workflows/MmM5YTkzNzUtYTZkOC00N2Q3LWI1YTAtZDk1OWEzNjI5YWFl"}
+[debug] [2026-09-07T07:36:11.810Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2026-09-07T07:36:11.811Z] Checked if tokens are valid: true, expires at: 1788770144229
+[debug] [2026-09-07T07:36:11.811Z] Checked if tokens are valid: true, expires at: 1788770144229
+[debug] [2026-09-07T07:36:11.811Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MmM5YTkzNzUtYTZkOC00N2Q3LWI1YTAtZDk1OWEzNjI5YWFl [none]
+[debug] [2026-09-07T07:36:13.282Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MmM5YTkzNzUtYTZkOC00N2Q3LWI1YTAtZDk1OWEzNjI5YWFl 200
+[debug] [2026-09-07T07:36:13.282Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MmM5YTkzNzUtYTZkOC00N2Q3LWI1YTAtZDk1OWEzNjI5YWFl {"name":"operations/workflows/MmM5YTkzNzUtYTZkOC00N2Q3LWI1YTAtZDk1OWEzNjI5YWFl"}
+[debug] [2026-09-07T07:36:15.292Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2026-09-07T07:36:15.292Z] Checked if tokens are valid: true, expires at: 1788770144229
+[debug] [2026-09-07T07:36:15.293Z] Checked if tokens are valid: true, expires at: 1788770144229
+[debug] [2026-09-07T07:36:15.293Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MmM5YTkzNzUtYTZkOC00N2Q3LWI1YTAtZDk1OWEzNjI5YWFl [none]
+[debug] [2026-09-07T07:36:16.475Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MmM5YTkzNzUtYTZkOC00N2Q3LWI1YTAtZDk1OWEzNjI5YWFl 200
+[debug] [2026-09-07T07:36:16.475Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MmM5YTkzNzUtYTZkOC00N2Q3LWI1YTAtZDk1OWEzNjI5YWFl {"name":"operations/workflows/MmM5YTkzNzUtYTZkOC00N2Q3LWI1YTAtZDk1OWEzNjI5YWFl"}
+[debug] [2026-09-07T07:36:20.484Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2026-09-07T07:36:20.485Z] Checked if tokens are valid: true, expires at: 1788770144229
+[debug] [2026-09-07T07:36:20.485Z] Checked if tokens are valid: true, expires at: 1788770144229
+[debug] [2026-09-07T07:36:20.485Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MmM5YTkzNzUtYTZkOC00N2Q3LWI1YTAtZDk1OWEzNjI5YWFl [none]
+[debug] [2026-09-07T07:36:21.485Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MmM5YTkzNzUtYTZkOC00N2Q3LWI1YTAtZDk1OWEzNjI5YWFl 200
+[debug] [2026-09-07T07:36:21.485Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/MmM5YTkzNzUtYTZkOC00N2Q3LWI1YTAtZDk1OWEzNjI5YWFl {"name":"operations/workflows/MmM5YTkzNzUtYTZkOC00N2Q3LWI1YTAtZDk1OWEzNjI5YWFl","done":true,"response":{"@type":"type.googleapis.com/google.firebase.service.v1beta1.FirebaseProject","projectId":"peace-hvac","projectNumber":"586127394828","displayName":"peace","name":"projects/peace-hvac","resources":{"hostingSite":"peace-hvac"}}}
+[info] 
+[info] === Your Firebase project is ready! ===
+[info] 
+[info] Project information:
+[info]    - Project ID: peace-hvac
+[info]    - Project Name: peace
+[info] 
+[info] Firebase console is available at
+[info] https://console.firebase.google.com/project/peace-hvac/overview
+[info] 
+=== Hosting Setup
+[debug] [2026-09-07T07:36:39.420Z] Checked if tokens are valid: true, expires at: 1788770144229
+[debug] [2026-09-07T07:36:39.420Z] Checked if tokens are valid: true, expires at: 1788770144229
+[debug] [2026-09-07T07:36:39.420Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/peace-hvac [none]
+[debug] [2026-09-07T07:36:40.775Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/peace-hvac 200
+[debug] [2026-09-07T07:36:40.775Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/peace-hvac {"projectId":"peace-hvac","projectNumber":"586127394828","displayName":"peace","name":"projects/peace-hvac","resources":{"hostingSite":"peace-hvac"},"state":"ACTIVE","labels":{"firebase":"enabled"},"etag":"1_b2b41377-4f54-4497-8fdf-eeb504a8baeb"}
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 

@@ -1,0 +1,62 @@
+---
+import BaseLayout from "../components/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import QuoteBand from "../components/QuoteBand.astro";
+import { locations } from "../data/company";
+---
+
+<BaseLayout
+  title="About"
+  active="about"
+  description="Learn about PEACE HVAC Engineers' mission, safety approach, quality systems and South India service presence."
+>
+  <PageHero
+    title="Precision on site. Dependability after handover."
+    intro="PEACE combines engineering knowledge with on-site execution and maintenance support to create comfortable, productive and efficient indoor environments."
+    image="/assets/field/exposed-ductwork-interior.jpg"
+    imageAlt="Exposed ductwork installed in a completed commercial interior"
+  />
+
+  <section class="section mission-grid shell">
+    <div><h2>Our mission</h2><p class="lead">Deliver efficient, reliable HVAC solutions with quality and precision.</p></div>
+    <div><h2>Our vision</h2><p>Become a trusted first choice for HVAC services through service quality, effective communication and a practical understanding of client needs.</p></div>
+  </section>
+
+  <section class="section safety-section">
+    <div class="shell safety-grid">
+      <figure><img src="/assets/site-safety.png" alt="Workers at an active construction site" width="375" height="593" loading="lazy" /></figure>
+      <div>
+        <h2>Occupational health and safety</h2>
+        <p class="lead">Protecting people, worksites and the environment is part of how every project is managed.</p>
+        <p>PEACE's company profile describes regular risk assessment, personnel training, PPE requirements, continuous monitoring and prompt corrective action.</p>
+        <ul class="check-list">
+          <li>Risk assessment before and during work</li>
+          <li>Training for engineering and technical personnel</li>
+          <li>Site supervision and approved procedures</li>
+          <li>Continuous review and corrective action</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section suppliers-section">
+    <div class="shell suppliers-grid">
+      <div>
+        <h2>Equipment and supplier experience</h2>
+        <p>PEACE's supplied profile shows experience working across a wide range of established HVAC equipment brands.</p>
+      </div>
+      <figure><img src="/assets/supplier-brands.jpg" alt="HVAC supplier and equipment brand panel from the company profile" width="512" height="159" loading="lazy" /></figure>
+    </div>
+  </section>
+
+  <section class="section presence-section shell">
+    <div class="presence-copy">
+      <h2>South India service presence</h2>
+      <p>PEACE's profile identifies key operating locations across five major cities.</p>
+      <ul class="location-list">{locations.map((location) => <li>{location}</li>)}</ul>
+    </div>
+    <figure class="map-frame"><img src="/assets/service-map.png" alt="South India service map with operations in five major cities" width="922" height="1383" loading="lazy" /></figure>
+  </section>
+
+  <QuoteBand />
+</BaseLayout>

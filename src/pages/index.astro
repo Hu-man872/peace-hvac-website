@@ -1,0 +1,203 @@
+---
+import ArrowIcon from "../components/ArrowIcon.astro";
+import BaseLayout from "../components/BaseLayout.astro";
+import QuoteBand from "../components/QuoteBand.astro";
+import { locations, projectGallery, services, systemVisuals } from "../data/company";
+---
+
+<BaseLayout title="PEACE HVAC Engineers" active="home">
+  <section class="home-hero">
+    <div class="hero-panorama shell">
+      <img
+        class="hero-panorama-image"
+        src="/assets/field/ductwork-site.jpg"
+        alt="Ductwork installation in progress at a PEACE HVAC project site"
+        width="1080"
+        height="486"
+        fetchpriority="high"
+      />
+      <div class="hero-copy">
+        <h1>HVAC engineering, end to end.</h1>
+        <p>
+          Design, supply, installation and maintenance for commercial, industrial and
+          residential buildings across South India.
+        </p>
+        <div class="hero-actions">
+          <a class="button" href="/contact/">Discuss a project <ArrowIcon direction="up-right" /></a>
+          <a class="text-link text-link-light" href="/projects/">See work on site <ArrowIcon /></a>
+        </div>
+        <div class="hero-presence" aria-label="Company location and service presence">
+          <strong>Bengaluru</strong>
+          <span>Project execution and service across South India</span>
+        </div>
+      </div>
+      <span class="hero-photo-caption">Duct distribution · on-site installation</span>
+    </div>
+
+    <div class="systems-rail">
+      <div class="systems-rail-inner shell" aria-label="HVAC systems and services">
+        {
+          systemVisuals.map((system) => (
+            <article class="system-visual">
+              <img src={system.image} alt={system.alt} width="320" height="180" loading="lazy" />
+              <strong>{system.title}</strong>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-intro shell">
+    <h2>One team. Complete HVAC responsibility.</h2>
+    <div class="section-intro-copy">
+      <p class="lead">
+        PEACE brings engineering, execution and maintenance together across the life of an HVAC
+        system.
+      </p>
+      <p>
+        Requirements are assessed around the building, its occupants and operating conditions.
+        Installation is supervised, connections are tested, and future maintenance is planned
+        before handover—not added as an afterthought.
+      </p>
+      <a class="text-link" href="/about/">How PEACE works <ArrowIcon /></a>
+    </div>
+  </section>
+
+  <section class="section services-preview">
+    <div class="shell section-heading-row service-heading">
+      <h2>Four responsibilities. One accountable team.</h2>
+      <div>
+        <p>Practical engineering for new projects, upgrades and ongoing operation.</p>
+        <a class="text-link" href="/services/">Explore every service <ArrowIcon /></a>
+      </div>
+    </div>
+    <div class="service-showcase shell">
+      {
+        services.map((service) => (
+          <article class="service-panel">
+            <img src={service.image} alt={service.alt} width="720" height="520" loading="lazy" />
+            <div class="service-panel-copy">
+              <h3>{service.title}</h3>
+              <p>{service.short}</p>
+              <a class="text-link" href={`/contact/?service=${encodeURIComponent(service.title)}`}>
+                Discuss this service <ArrowIcon />
+              </a>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section field-proof">
+    <div class="shell field-proof-header">
+      <div>
+        <h2>Project work, on site.</h2>
+        <p>
+          Real PEACE installation photographs—from duct distribution and piping to rooftop
+          equipment.
+        </p>
+      </div>
+      <a class="button button-light" href="/projects/">View project experience <ArrowIcon /></a>
+    </div>
+    <div class="shell field-gallery">
+      {
+        projectGallery.slice(0, 5).map((project) => (
+          <figure>
+            <img src={project.image} alt={project.alt} width="720" height="520" loading="lazy" />
+            <figcaption>{project.caption}</figcaption>
+          </figure>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section lifecycle-section">
+    <div class="shell lifecycle-grid">
+      <div class="lifecycle-copy">
+        <h2>From site study to handover.</h2>
+        <p>
+          Design intent stays connected to installation, testing and maintenance through one
+          clear operating sequence.
+        </p>
+        <figure class="lifecycle-photo">
+          <img
+            src="/assets/field/ceiling-pipework.jpg"
+            alt="Installed refrigerant and drainage pipework above a suspended ceiling"
+            width="540"
+            height="288"
+            loading="lazy"
+          />
+          <figcaption>Pipework coordination · project installation</figcaption>
+        </figure>
+        <a class="text-link text-link-light" href="/contact/">Bring us your requirement <ArrowIcon /></a>
+      </div>
+      <ol class="lifecycle-list">
+        <li><strong>Study and design</strong><span>Understand the site, load, use and system requirements.</span></li>
+        <li><strong>Engineer the solution</strong><span>Define equipment, distribution, piping and execution scope.</span></li>
+        <li><strong>Execute and supervise</strong><span>Install to approved plans with qualified teams on site.</span></li>
+        <li><strong>Test, hand over and maintain</strong><span>Verify operation and support dependable long-term performance.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section quality-section">
+    <div class="shell quality-grid">
+      <div class="quality-visuals">
+        <figure class="quality-site-photo">
+          <img
+            src="/assets/field/plenum-installation.jpg"
+            alt="Ceiling plenum and ductwork installation in progress"
+            width="496"
+            height="720"
+            loading="lazy"
+          />
+        </figure>
+        <figure class="quality-safety-photo">
+          <img
+            src="/assets/site-safety.png"
+            alt="Construction team working with safety equipment on an active project site"
+            width="375"
+            height="593"
+            loading="lazy"
+          />
+        </figure>
+      </div>
+      <div class="quality-copy">
+        <h2>Quality is controlled on site.</h2>
+        <p>
+          PEACE's company profile describes regular risk assessment, personnel training, PPE use,
+          engineering supervision and continuous review of approved procedures.
+        </p>
+        <div class="quality-points">
+          <div><strong>Risk assessment</strong><span>Site hazards and working conditions reviewed through the project.</span></div>
+          <div><strong>SMACNA</strong><span>Ductwork design and execution aligned with recognized industry specifications.</span></div>
+          <div><strong>Supervised execution</strong><span>Installation and maintenance led by engineers and qualified technicians.</span></div>
+        </div>
+        <a class="text-link" href="/about/">Read about quality and safety <ArrowIcon /></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section presence-section shell">
+    <div class="presence-copy">
+      <h2>South India project reach.</h2>
+      <p>Regional presence supports execution and maintenance closer to client sites.</p>
+      <ul class="location-list">
+        {locations.map((location) => <li>{location}</li>)}
+      </ul>
+    </div>
+    <figure class="map-frame">
+      <img
+        src="/assets/service-map.png"
+        alt="Map showing PEACE HVAC service presence in Bengaluru, Hyderabad, Vijayawada, Chennai and Thiruvananthapuram"
+        width="922"
+        height="1383"
+        loading="lazy"
+      />
+    </figure>
+  </section>
+
+  <QuoteBand />
+</BaseLayout>

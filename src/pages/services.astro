@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../components/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import QuoteBand from "../components/QuoteBand.astro";
+import { services, systemVisuals } from "../data/company";
+---
+
+<BaseLayout
+  title="HVAC Services"
+  active="services"
+  description="HVAC project execution, ductwork, copper piping and maintenance services across South India."
+>
+  <PageHero
+    title="Complete HVAC capability."
+    intro="From cooling-system design and on-site execution to testing, maintenance and spare-parts support, PEACE delivers the technical work needed for dependable operation."
+    image="/assets/field/vrf-rooftop.jpg"
+    imageAlt="VRF outdoor units and refrigerant pipework on a rooftop"
+  />
+
+  <section class="section systems-band">
+    <div class="shell systems-band-layout">
+      <h2>Systems we work with</h2>
+      <div class="systems-gallery">
+        {
+          systemVisuals.map((system) => (
+            <figure>
+              <img src={system.image} alt={system.alt} width="320" height="180" loading="lazy" />
+              <figcaption>{system.title}</figcaption>
+            </figure>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section service-details shell">
+    {
+      services.map((service, index) => (
+        <article class:list={["service-detail", { reverse: index % 2 === 1 }]}>
+          <figure>
+            <img src={service.image} alt={service.alt} width="381" height="447" loading="lazy" />
+          </figure>
+          <div class="service-detail-copy">
+            <h2>{service.title}</h2>
+            <p class="lead">{service.short}</p>
+            <p>{service.details}</p>
+            <a class="text-link" href={`/contact/?service=${encodeURIComponent(service.title)}`}>Discuss this service</a>
+          </div>
+        </article>
+      ))
+    }
+  </section>
+
+  <section class="section process-section shell">
+    <h2>Built around clear project control.</h2>
+    <div class="process-grid">
+      <div><h3>Requirement review</h3><p>Understand the building, operating conditions and intended performance.</p></div>
+      <div><h3>Engineering proposal</h3><p>Define an appropriate system approach and execution scope.</p></div>
+      <div><h3>Supervised execution</h3><p>Install to approved plans with qualified technical teams on site.</p></div>
+      <div><h3>Testing and support</h3><p>Verify system operation and plan the maintenance needed after handover.</p></div>
+    </div>
+  </section>
+
+  <QuoteBand />
+</BaseLayout>

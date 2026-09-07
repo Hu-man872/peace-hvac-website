@@ -1,0 +1,22 @@
+{
+  "name": "peace-hvac-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "check": "astro check",
+    "preview": "astro preview",
+    "test": "node --test tests/*.test.js"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "@fontsource-variable/archivo": "^5.3.0",
+    "@fontsource/source-sans-3": "^5.3.0",
+    "astro": "^7.3.1"
+  }
+}

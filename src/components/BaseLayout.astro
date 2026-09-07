@@ -1,0 +1,60 @@
+---
+import "@fontsource-variable/archivo/wght.css";
+import "@fontsource/source-sans-3/latin-400.css";
+import "@fontsource/source-sans-3/latin-600.css";
+import "@fontsource/source-sans-3/latin-700.css";
+import "../styles/global.css";
+import "../styles/redesign.css";
+import Header from "./Header.astro";
+import Footer from "./Footer.astro";
+import { company } from "../data/company";
+
+interface Props {
+  title: string;
+  description?: string;
+  active: string;
+}
+
+const { title, description = company.description, active } = Astro.props;
+const pageTitle = title === company.name ? title : `${title} | ${company.name}`;
+const configuredSiteUrl = import.meta.env.PUBLIC_SITE_URL?.trim();
+let canonicalUrl: string | undefined;
+let socialImageUrl: string | undefined;
+
+if (configuredSiteUrl) {
+  try {
+    const siteOrigin = new URL(configuredSiteUrl);
+    canonicalUrl = new URL(Astro.url.pathname, siteOrigin).toString();
+    socialImageUrl = new URL("/assets/field/ductwork-site.jpg", siteOrigin).toString();
+  } catch {
+    // Omit canonical and absolute social metadata until a valid public URL is configured.
+  }
+}
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#071f25" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={company.name} />
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+    {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+    {socialImageUrl && <meta property="og:image" content={socialImageUrl} />}
+    {socialImageUrl && <meta name="twitter:card" content="summary_large_image" />}
+    <link rel="icon" href="/assets/peace-logo.png" />
+    <title>{pageTitle}</title>
+  </head>
+  <body data-page={active}>
+    <Header active={active} />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

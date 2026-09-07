@@ -1,0 +1,92 @@
+---
+import ArrowIcon from "../components/ArrowIcon.astro";
+import BaseLayout from "../components/BaseLayout.astro";
+import { company, services, whatsappUrl } from "../data/company";
+
+const directWhatsapp = whatsappUrl("Hello PEACE HVAC Engineers, I would like to discuss an HVAC requirement.");
+---
+
+<BaseLayout
+  title="Contact"
+  active="contact"
+  description="Contact PEACE HVAC Engineers in Bengaluru to discuss HVAC projects, maintenance and service requirements."
+>
+  <section class="contact-hero shell">
+    <div class="contact-intro">
+      <h1>Discuss your HVAC requirement.</h1>
+      <p>Share the project type, location and requirement. The form prepares a structured WhatsApp enquiry for the PEACE team.</p>
+    </div>
+
+    <form class="quote-form" data-quote-form data-whatsapp-number={company.whatsappNumber} novalidate>
+      <div class="form-grid">
+        <label>
+          <span>Name</span>
+          <input name="name" autocomplete="name" aria-describedby="name-error" required />
+          <small class="field-error" id="name-error" data-error-for="name"></small>
+        </label>
+        <label>
+          <span>Company or organisation</span>
+          <input name="company" autocomplete="organization" aria-describedby="company-error" />
+          <small class="field-error" id="company-error" data-error-for="company"></small>
+        </label>
+        <label>
+          <span>Phone number</span>
+          <input name="phone" type="tel" autocomplete="tel" inputmode="tel" aria-describedby="phone-error" required />
+          <small class="field-error" id="phone-error" data-error-for="phone"></small>
+        </label>
+        <label>
+          <span>Project location</span>
+          <input name="location" autocomplete="address-level2" aria-describedby="location-error" required />
+          <small class="field-error" id="location-error" data-error-for="location"></small>
+        </label>
+        <label class="form-span">
+          <span>Service required</span>
+          <select name="service" aria-describedby="service-error" required>
+            <option value="">Select a service</option>
+            {services.map((service) => <option value={service.title}>{service.title}</option>)}
+            <option value="Other HVAC requirement">Other HVAC requirement</option>
+          </select>
+          <small class="field-error" id="service-error" data-error-for="service"></small>
+        </label>
+        <label class="form-span">
+          <span>Tell us about the requirement</span>
+          <textarea name="requirement" rows="5" aria-describedby="requirement-error" required></textarea>
+          <small class="field-error" id="requirement-error" data-error-for="requirement"></small>
+        </label>
+      </div>
+      <div class="form-actions">
+        <button class="button" type="submit">Continue in WhatsApp <ArrowIcon direction="up-right" /></button>
+        <p class="form-status" data-form-status aria-live="polite"></p>
+      </div>
+    </form>
+  </section>
+
+  <section class="section direct-contact">
+    <div class="shell direct-contact-grid">
+      <div>
+        <h2>Call or message</h2>
+        <a href={company.mobilePhones[0].href}>{company.mobilePhones[0].display}</a>
+        <a href={company.mobilePhones[1].href}>{company.mobilePhones[1].display}</a>
+        <a href={company.officePhone.href}>{company.officePhone.display}</a>
+        <a class="text-link" href={directWhatsapp} target="_blank" rel="noreferrer">Open WhatsApp <ArrowIcon direction="up-right" /></a>
+      </div>
+      <div>
+        <h2>Email</h2>
+        {company.emails.map((email) => <a href={`mailto:${email}`}>{email}</a>)}
+      </div>
+      <div>
+        <h2>Office</h2>
+        <address>{company.address}</address>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-image" aria-label="Installed ductwork">
+    <img src="/assets/field/linear-duct-installation.jpg" alt="Long linear duct installed above a commercial interior" width="332" height="720" loading="lazy" />
+  </section>
+
+  <script>
+    import { initQuoteForm } from "../scripts/quote.js";
+    initQuoteForm();
+  </script>
+</BaseLayout>

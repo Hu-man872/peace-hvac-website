@@ -1,0 +1,40 @@
+---
+import ArrowIcon from "./ArrowIcon.astro";
+import { company, navigation, whatsappUrl } from "../data/company";
+
+const whatsapp = whatsappUrl("Hello PEACE HVAC Engineers, I would like to discuss an HVAC requirement.");
+---
+
+<footer class="site-footer">
+  <div class="footer-main shell">
+    <div class="footer-brand">
+      <a class="brand brand-footer" href="/" aria-label="PEACE HVAC Engineers home">
+        <img src="/assets/peace-logo.png" alt="" width="410" height="615" loading="lazy" />
+        <span class="brand-name"><strong>PEACE</strong><span>HVAC Engineers</span></span>
+      </a>
+      <p>Engineering, execution and maintenance for the complete HVAC lifecycle.</p>
+      <address>{company.address}</address>
+    </div>
+
+    <nav class="footer-nav" aria-label="Footer">
+      <h2>Company</h2>
+      <ul>
+        {navigation.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+      </ul>
+    </nav>
+
+    <div class="footer-contact">
+      <h2>Discuss a project</h2>
+      <a href={company.mobilePhones[0].href}>{company.mobilePhones[0].display}</a>
+      <a href={company.mobilePhones[1].href}>{company.mobilePhones[1].display}</a>
+      <a href={`mailto:${company.emails[0]}`}>{company.emails[0]}</a>
+      <a class="text-link" href={whatsapp} target="_blank" rel="noreferrer">
+        Message on WhatsApp <ArrowIcon direction="up-right" />
+      </a>
+    </div>
+  </div>
+  <div class="footer-bottom shell">
+    <p>© 2026 PEACE HVAC Engineers</p>
+    <p>Bengaluru · Projects and service across South India</p>
+  </div>
+</footer>
